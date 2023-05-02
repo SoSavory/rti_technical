@@ -1,0 +1,51 @@
+<h1>Census Data</h1>
+
+<%= render partial: "summarize", locals: {summary: Record.summarize} %>
+
+<div style="padding: 1em; border: 1px solid black; margin: 1em;">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Age</th>
+            <th>Educ. Years</th>
+            <th>Educ. Level</th>
+            <th>Cap Gains</th>
+            <th>Cap Loss</th>
+            <th>Work Hours</th>
+            <th> > 50k? </th>
+            <th>Sex</th>
+            <th>Race</th>
+            <th>Country</th>
+            <th>Work Class</th>
+            <th>Occupation</th>
+            <th>Marital Status</th>
+        </tr>
+        <% @records.each do |r| %>
+            <tr>
+                <td><%= r.id %></td>
+                <td><%= r.age %></td>
+                <td><%= r.education_num %></td>
+                <td><%= r.education_level %></td>
+                <td><%= r.capital_gain %></td>
+                <td><%= r.capital_loss %></td>
+                <td><%= r.hours_week %></td>
+                <td><%= r.over_50k %></td>
+                <td><%= r.sex %></td>
+                <td><%= r.race %></td>
+                <td><%= r.country %></td>
+                <td><%= r.workclass %></td>
+                <td><%= r.occupation %></td>
+                <td><%= r.marital_status %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>
+
+<p>Page: <%= params[:page] %></p>
+<% if params[:page].to_i != 0 %>
+    <%= link_to "Prev", "/#{params[:page].to_i - 1}" %>
+<% end %>
+
+<% if Record.count > (params[:page].to_i + 1) * 10 %>
+    <%= link_to "Next", "/#{params[:page].to_i + 1}" %>
+<% end %>

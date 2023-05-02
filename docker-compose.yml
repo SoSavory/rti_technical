@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:15.2-alpine
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+  python-import:
+    build: ./python-import
+    volumes:
+      - ./sqlite_imports:/sqlite_imports
+      - ./flat_census_exports:/flat_census_exports
+      - ./bash-scripts/hash-poll.sh:/hash-poll.sh
+      - ./python-import/sqlite-imports-hash:/sqlite-imports-hash
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST=db
+    command: ["bash", "/hash-poll.sh", "/sqlite_imports", "/sqlite-imports-hash", 'python3 -u /import_census.py']
+  display:
+    build: ./display
+    volumes:
+      - ./display:/display
+    ports:
+      - "3000:3000"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    depends_on:
+      python-import:
+        condition: service_completed_successfully

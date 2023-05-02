@@ -1,0 +1,178 @@
+Started GET "/" for 172.26.0.1 at 2023-05-02 17:43:16 +0000
+Cannot render console from 172.26.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by RecordsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering records/index.html.erb within layouts/application
+  Rendered records/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 3693)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3797)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.8ms | Allocations: 11557)
+
+
+  
+ActionView::Template::Error (PG::UndefinedTable: ERROR:  relation "records" does not exist
+LINE 9:  WHERE a.attrelid = '"records"'::regclass
+                            ^
+):
+    1: <h1>Census Data</h1>
+    2: 
+    3: <%= render partial: "summarize", locals: {summary: Record.summarize} %>
+    4: 
+    5: <div style="padding: 1em; border: 1px solid black; margin: 1em;">
+    6:     <table>
+  
+app/models/record.rb:3:in `summarize'
+app/views/records/index.html.erb:3
+Started GET "/" for 172.26.0.1 at 2023-05-02 17:46:06 +0000
+Cannot render console from 172.26.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by RecordsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering records/index.html.erb within layouts/application
+  Rendered records/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2840)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 2944)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.0ms | Allocations: 7636)
+
+
+  
+ActionView::Template::Error (PG::UndefinedTable: ERROR:  relation "records" does not exist
+LINE 9:  WHERE a.attrelid = '"records"'::regclass
+                            ^
+):
+    1: <h1>Census Data</h1>
+    2: 
+    3: <%= render partial: "summarize", locals: {summary: Record.summarize} %>
+    4: 
+    5: <div style="padding: 1em; border: 1px solid black; margin: 1em;">
+    6:     <table>
+  
+app/models/record.rb:3:in `summarize'
+app/views/records/index.html.erb:3
+Started GET "/" for 172.26.0.1 at 2023-05-02 17:46:09 +0000
+Cannot render console from 172.26.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by RecordsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering records/index.html.erb within layouts/application
+  Rendered records/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1622)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1710)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.9ms | Allocations: 1985)
+
+
+  
+ActionView::Template::Error (PG::UndefinedTable: ERROR:  relation "records" does not exist
+LINE 9:  WHERE a.attrelid = '"records"'::regclass
+                            ^
+):
+    1: <h1>Census Data</h1>
+    2: 
+    3: <%= render partial: "summarize", locals: {summary: Record.summarize} %>
+    4: 
+    5: <div style="padding: 1em; border: 1px solid black; margin: 1em;">
+    6:     <table>
+  
+app/models/record.rb:3:in `summarize'
+app/views/records/index.html.erb:3
+Started GET "/" for 172.26.0.1 at 2023-05-02 17:46:24 +0000
+Cannot render console from 172.26.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by RecordsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering records/index.html.erb within layouts/application
+  Rendered records/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2840)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2944)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.6ms | Allocations: 7636)
+
+
+  
+ActionView::Template::Error (PG::UndefinedTable: ERROR:  relation "records" does not exist
+LINE 9:  WHERE a.attrelid = '"records"'::regclass
+                            ^
+):
+    1: <h1>Census Data</h1>
+    2: 
+    3: <%= render partial: "summarize", locals: {summary: Record.summarize} %>
+    4: 
+    5: <div style="padding: 1em; border: 1px solid black; margin: 1em;">
+    6:     <table>
+  
+app/models/record.rb:3:in `summarize'
+app/views/records/index.html.erb:3
+Started GET "/" for 172.26.0.1 at 2023-05-02 17:46:52 +0000
+Cannot render console from 172.26.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by RecordsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Count (5.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "records"[0m
+  ↳ app/models/record.rb:3:in `summarize'
+  [1m[36mRecord Sum (4.3ms)[0m  [1m[34mSELECT SUM("records"."capital_gain") FROM "records"[0m
+  ↳ app/models/record.rb:4:in `summarize'
+  [1m[36mRecord Count (6.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "records" WHERE (capital_gain != (0))[0m
+  ↳ app/models/record.rb:4:in `summarize'
+  [1m[36mRecord Sum (4.1ms)[0m  [1m[34mSELECT SUM("records"."capital_loss") FROM "records"[0m
+  ↳ app/models/record.rb:5:in `summarize'
+  [1m[36mRecord Count (4.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "records" WHERE (capital_loss != (0))[0m
+  ↳ app/models/record.rb:5:in `summarize'
+  [1m[36mCACHE Record Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "records"[0m
+  ↳ app/models/record.rb:7:in `summarize'
+  [1m[36mRecord Pluck (26.5ms)[0m  [1m[34mSELECT count(distinct(occupation)) FROM "records"[0m
+  ↳ app/models/record.rb:10:in `summarize'
+  Rendered records/_summarize.html.erb (Duration: 0.5ms | Allocations: 200)
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/records/index.html.erb:23
+  [1m[36mCACHE Record Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "records"[0m
+  ↳ app/views/records/index.html.erb:49
+  Rendered records/index.html.erb within layouts/application (Duration: 88.4ms | Allocations: 19211)
+  Rendered layout layouts/application.html.erb (Duration: 291.4ms | Allocations: 114567)
+Completed 200 OK in 308ms (Views: 234.5ms | ActiveRecord: 58.8ms | Allocations: 119306)
+
+
+Started GET "/" for 172.27.0.1 at 2023-05-02 17:50:54 +0000
+Cannot render console from 172.27.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by RecordsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering records/index.html.erb within layouts/application
+  Rendered records/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2841)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2945)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.6ms | Allocations: 7637)
+
+
+  
+ActionView::Template::Error (PG::UndefinedTable: ERROR:  relation "records" does not exist
+LINE 9:  WHERE a.attrelid = '"records"'::regclass
+                            ^
+):
+    1: <h1>Census Data</h1>
+    2: 
+    3: <%= render partial: "summarize", locals: {summary: Record.summarize} %>
+    4: 
+    5: <div style="padding: 1em; border: 1px solid black; margin: 1em;">
+    6:     <table>
+  
+app/models/record.rb:3:in `summarize'
+app/views/records/index.html.erb:3
+Started GET "/" for 172.27.0.1 at 2023-05-02 17:51:19 +0000
+Cannot render console from 172.27.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by RecordsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering records/index.html.erb within layouts/application
+  [1m[36mRecord Count (7.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "records"[0m
+  ↳ app/models/record.rb:3:in `summarize'
+  [1m[36mRecord Sum (4.6ms)[0m  [1m[34mSELECT SUM("records"."capital_gain") FROM "records"[0m
+  ↳ app/models/record.rb:4:in `summarize'
+  [1m[36mRecord Count (6.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "records" WHERE (capital_gain != (0))[0m
+  ↳ app/models/record.rb:4:in `summarize'
+  [1m[36mRecord Sum (6.8ms)[0m  [1m[34mSELECT SUM("records"."capital_loss") FROM "records"[0m
+  ↳ app/models/record.rb:5:in `summarize'
+  [1m[36mRecord Count (4.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "records" WHERE (capital_loss != (0))[0m
+  ↳ app/models/record.rb:5:in `summarize'
+  [1m[36mCACHE Record Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "records"[0m
+  ↳ app/models/record.rb:7:in `summarize'
+  [1m[36mRecord Pluck (17.9ms)[0m  [1m[34mSELECT count(distinct(occupation)) FROM "records"[0m
+  ↳ app/models/record.rb:10:in `summarize'
+  Rendered records/_summarize.html.erb (Duration: 1.1ms | Allocations: 203)
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/views/records/index.html.erb:23
+  [1m[36mCACHE Record Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "records"[0m
+  ↳ app/views/records/index.html.erb:49
+  Rendered records/index.html.erb within layouts/application (Duration: 120.2ms | Allocations: 17497)
+  Rendered layout layouts/application.html.erb (Duration: 164.1ms | Allocations: 51037)
+Completed 200 OK in 175ms (Views: 111.0ms | ActiveRecord: 55.0ms | Allocations: 55776)
+
+
